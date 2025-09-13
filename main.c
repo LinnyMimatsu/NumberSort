@@ -7,9 +7,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+/*Function declaration*/
 int arrSize();
+void bubbleSort(int arr[], int arrSize);
 void userArr(int arrSize);
 
+/*running functions in main*/
 int main(void) {
 
     int size = arrSize();
@@ -20,6 +24,7 @@ int main(void) {
 }
 
 
+/*Grabs the array size from the user*/
 int arrSize() {
     int arrSize;
 
@@ -29,9 +34,32 @@ int arrSize() {
     return arrSize;
 }
 
+
+/*Bubble sort algorithm*/
+void bubbleSort(int arr[], int arrSize) {
+
+    for (int i = 0; i < arrSize - 1; i++) {
+    for (int j = 0; j < arrSize - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+
+            int temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+
+            }
+        }
+    }
+}
+
+
+/*
+ *fills the array with user inputted numbers and displays them
+ * sorted and unsorted
+ */
 void userArr(int arrSize) {
 
     int* ptr = (int* ) calloc(arrSize, sizeof(int));
+
 
     for (int i = 0; i < arrSize; i++) {
 
@@ -40,6 +68,14 @@ void userArr(int arrSize) {
 
     }
 
+    printf("Unsorted:\n");
+    for (int i = 0; i < arrSize; i++) {
+        printf("%d ", ptr[i]);
+    }
+
+    bubbleSort(ptr, arrSize);
+
+    printf("\nSorted:\n");
     for (int i = 0; i < arrSize; i++) {
         printf("%d ", ptr[i]);
     }
