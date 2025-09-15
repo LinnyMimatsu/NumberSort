@@ -13,6 +13,7 @@ int arrSize();
 void bubbleSort(int arr[], int arrSize);
 void userArr(int arrSize);
 
+
 /*running functions in main*/
 int main(void) {
 
@@ -58,28 +59,27 @@ void bubbleSort(int arr[], int arrSize) {
  */
 void userArr(int arrSize) {
 
-    int* ptr = (int* ) calloc(arrSize, sizeof(int));
-
+    int* arr = (int* ) calloc(arrSize, sizeof(int));
 
     for (int i = 0; i < arrSize; i++) {
 
         printf("Enter element %d: ", i + 1);
-        scanf("%d", &ptr[i]);
+        scanf("%d", &arr[i]);
 
     }
 
     printf("Unsorted:\n");
     for (int i = 0; i < arrSize; i++) {
-        printf("%d ", ptr[i]);
+        printf("%d ", arr[i]);
     }
 
-    bubbleSort(ptr, arrSize);
+    bubbleSort(arr, arrSize);
 
     printf("\nSorted:\n");
     for (int i = 0; i < arrSize; i++) {
-        printf("%d ", ptr[i]);
+        printf("%d ", arr[i]);
     }
 
-    free(ptr);
+    free(arr);
 
 }
